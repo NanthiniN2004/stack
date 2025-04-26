@@ -140,6 +140,70 @@ After reverse olleh enoyreve
 
 ````
 
+## Next Greater Element (NGE) for every element in given Array
+
+````java[]
+
+package stack;
+import java.util.*;
+public class Nextgreater {
+	static ArrayList<Integer> nextgreater(int[] a)
+	{
+		int n=a.length;
+		Stack<Integer> st=new Stack<>();
+		ArrayList<Integer> res=new ArrayList<>();
+		for(int i=0;i<n;i++)
+		{
+		     res.add(-1);
+		}
+		for(int i=n-1;i>=0;i--)
+		{
+			while(!st.isEmpty() && st.peek()<=a[i] )
+			{
+				st.pop();
+			}
+			if(!st.isEmpty())
+			{
+				res.set(i, st.peek());
+			}
+			st.push(a[i]);
+		}
+		return res;
+		
+	}
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int n=s.nextInt();
+		int[] a=new int[n];
+		for(int i=0;i<n;i++)
+		{
+			a[i]=s.nextInt();
+		}
+		ArrayList<Integer> sol=nextgreater(a);
+		System.out.println("After changing element ");
+		for(int x:sol)
+		{
+			System.out.print(x+" ");
+		}
+		
+
+	}
+
+}
+
+OUTPUT:
+
+5
+6
+8
+0
+1
+3
+After changing element 
+8-1 1 3 -1
+````
+
 
 
 
