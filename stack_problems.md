@@ -204,6 +204,67 @@ After changing element
 8-1 1 3 -1
 ````
 
+## Nearest smaller numbers on left side in an array
 
+````java[]
+
+package stack;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Nextsmallest {
+	static void  nextgreater(int[] a)
+	{
+		int n=a.length;
+		Stack<Integer> st=new Stack<>();
+		for(int i=0;i<n;i++)
+		{
+			while(!st.isEmpty() && st.peek()>=a[i] )
+			{
+				st.pop();
+			}
+			if(st.isEmpty())
+			{
+				System.out.print("-1 ");
+			}
+			else {
+				System.out.print(st.peek()+" ");
+			}
+			st.push(a[i]);
+		}
+	
+	}
+
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int n=s.nextInt();
+		int[] a=new int[n];
+		for(int i=0;i<n;i++)
+		{
+			a[i]=s.nextInt();
+		}
+		System.out.println("After changing element ");
+		nextgreater(a);
+
+	}
+
+}
+
+OUTPUT:
+
+6
+1
+5
+0
+3
+4
+5
+After changing element 
+-1 1 -1 0 3 4
+
+`````
 
 
