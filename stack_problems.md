@@ -266,5 +266,62 @@ After changing element
 -1 1 -1 0 3 4
 
 `````
+## Sort a stack using a temporary stack
+
+````java[]
 
 
+
+package stack;
+import java.util.*;
+public class Sorting {
+	public static Stack<Integer> sort (Stack<Integer> st){
+		   Stack<Integer> t=new Stack<>();
+		   
+		   while(!st.isEmpty())
+		   {
+			   int temp=st.pop();
+			   while(!t.isEmpty() && t.peek()<temp)
+			   {
+				   st.push(t.pop());
+			   }
+			   t.push(temp);
+		   }
+		   return t;
+		   
+	}
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int n=s.nextInt();
+		Stack<Integer> input=new Stack<>();
+		for(int i=0;i<n;i++)
+		{
+			int val=s.nextInt();
+			input.push(val);
+			
+		}
+		Stack<Integer> result=sort(input);
+		while(!result.isEmpty())
+		{
+			System.out.print( result.pop()+" ");
+		}
+		
+		
+
+	}
+
+}
+
+output:
+
+6
+34
+2
+36
+76
+55
+51
+2 34 36 51 55 76 
+
+````
