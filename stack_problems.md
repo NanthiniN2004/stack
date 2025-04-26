@@ -86,3 +86,60 @@ After delete middle of stack
 5 4 2 1
 
 `````
+
+## Reverse individual words
+
+## Input: Hello World
+Output: olleH dlroW
+Explanation: Each word in “Hello World” is reversed individually, preserving the original order, resulting in “olleH dlroW”.
+
+
+## Input: Geeks for Geeks
+Output: skeeG rof skeeG
+
+````java[]
+
+package stack;
+import java.util.*;
+public class Reverseindividualword {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the sentence ");
+		String str=s.nextLine();
+		Stack<Character> st=new Stack<>();
+		StringBuilder sb=new StringBuilder();
+		for(int i=0;i<str.length();i++)
+		{
+		if(str.charAt(i)!=' ')
+		{
+			st.push(str.charAt(i));
+		}
+		else {
+			while(!st.isEmpty())
+			{
+				sb.append(st.pop());
+			}
+			sb.append(' ');
+		}
+		}
+		while(!st.isEmpty())
+		{
+			sb.append(st.pop());
+		}
+	     System.out.println("After reverse "+ sb.toString());
+
+	}
+
+}
+
+OUTPUT:
+Enter the sentence 
+hello everyone
+After reverse olleh enoyreve
+
+````
+
+
+
+
